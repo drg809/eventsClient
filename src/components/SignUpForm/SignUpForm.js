@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
-
+import { values, size } from 'lodash';
+import { toast } from 'react-toastify';
+import { isValidEmail } from '../../utils/validations';
+ 
 import './SignUpForm.scss';
 
 export default function SignUpForm(props) {
@@ -9,12 +12,36 @@ export default function SignUpForm(props) {
 
    const onSubmit = e => {
       e.preventDefault();
-      setShowModal(false);
-   }
+      //setShowModal(false);
+
+      let validCount = 0;
+      values(formData).some(value => {
+         console.log(value)
+         value && validCount++
+         return null
+      });
+      console.log(validCount)
+      console.log(size(formData))
+      console.log(formData)
+
+      if ( validCount !== size(formData) ) {
+         toast.warning('Completa todos los campos del formulario.');
+      } else{
+         if (!isValidEmail(formData.email)) {
+            toast.warning('El email no es válido.');
+         } else if (formData.password !== formData.repeatPassword) {
+            toast.warning('Las contraseñas tienen que ser iguales');
+         } else if (size(formData.password) < 8) {
+            toast.warning('La contraseña tienen que tener al menos 8 caracteres.');
+         } else {
+            toast.success('Formulario correcto.');
+         }
+      }
+   };
 
    const onChange = e => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
-   }
+   };
 
    return (
       <div className='sign-up-form'>
@@ -31,7 +58,7 @@ export default function SignUpForm(props) {
                </Row>
             </Form.Group>
             <Form.Group>
-               <Form.Control name="name" type='email' placeholder='Correo electrónico' defaultValue={formData.email} />
+               <Form.Control name="email" type='email' placeholder='Correo electrónico' defaultValue={formData.email} />
             </Form.Group>
             <Form.Group>
                <Row>
@@ -50,7 +77,7 @@ export default function SignUpForm(props) {
          </Form>
       </div>
    )
-}
+};
 
 function initialFormValue() {
    return {
@@ -60,4 +87,4 @@ function initialFormValue() {
       password: '',
       repeatPassword: '',
    };
-}
+};
