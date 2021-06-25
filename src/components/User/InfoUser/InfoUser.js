@@ -1,6 +1,8 @@
 import React from 'react';
-import { LocationIcon, LinkIcon, BirthIcon } from '../../../utils/Icons';
+import moment from 'moment';
+import localization from 'moment/locale/es';
 
+import { LocationIcon, LinkIcon, BirthIcon } from '../../../utils/Icons';
 import './InfoUser.scss';
 
 export default function InfoUser(props) {
@@ -9,23 +11,24 @@ export default function InfoUser(props) {
    return (
       <div className="info-user">
          <h2 className="name">{user?.name} {user?.surname}</h2>
-         {user?.web && (
-            <a href={user.web} alt={user.web} target="_blank" rel="noopener noreferrer" > <LinkIcon /> {user.web}</a>
-         )}
+
          {user?.bio && (
             <div className="description">{user.bio}</div>
          )}
-         <div className="">
+         <div className="more-info">
             {user?.location && (
                <p>
                   <LocationIcon />
                   {user.location}
                </p>
             )}
+            {user?.web && (
+               <a href={user.web} alt={user.web} target="_blank" rel="noopener noreferrer" > <LinkIcon /> {user.web}</a>
+            )}
             {user?.date && (
                <p>
                   <BirthIcon />
-                  {user.date}
+                  {moment(user.date).locale('es', localization).format('LL')}
                </p>
             )}
          </div>
