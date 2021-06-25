@@ -5,7 +5,7 @@ import Error404 from '../page/Error404/Error404';
 
 export default [
    {
-      path: '/user/:id',
+      path: '/profile/:id',
       exact: true,
       page: User
    },
