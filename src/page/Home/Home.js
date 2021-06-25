@@ -1,11 +1,12 @@
 import React from 'react';
+import BasicLayout from '../../layout/BasicLayout/BasicLayout';
 
 import './Home.scss';
 
 export default function Home() {
    return (
-      <div>
+      <BasicLayout>
          <h2>Estamos en home</h2>
-      </div>
+      </BasicLayout>
    )
 }
