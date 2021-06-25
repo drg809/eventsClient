@@ -1,7 +1,13 @@
 import Home from '../page/Home/Home';
+import User from '../page/User/User';
 import Error404 from '../page/Error404/Error404';
 
 export default [
+   {
+      path: '/user/:id',
+      exact: true,
+      page: User
+   },
    {
       path: '/',
       exact: true,
@@ -10,6 +16,5 @@ export default [
    {
       path: '*',
       page: Error404
-   },
-
+   }
 ]
