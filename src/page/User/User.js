@@ -7,6 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { getUserApi } from '../../api/user';
 import BasicLayout from '../../layout/BasicLayout/BasicLayout';
 import BannerAvatar from '../../components/User/BannerAvatar/BannerAvatar';
+import InfoUser from '../../components/User/InfoUser/InfoUser';
 import './User.scss';
 
 function User(props) {
@@ -30,7 +31,7 @@ function User(props) {
             <h2> {user ? `${user.name} ${user.surname}` : 'El usuario no existe' } </h2>
          </div>
          <BannerAvatar user={user} loggedUser={loggedUser} />
-         <div>Info usuario</div>
+         <InfoUser user={user} />
          <div className="user__events">Lista de eventos</div>
       </BasicLayout>
    );
