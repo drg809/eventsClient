@@ -25,7 +25,7 @@ export default function LeftMenu(props) {
 
          <Link to="/"> <FontAwesomeIcon icon={faHome} /> Inicio</Link>
          <Link to="/users"> <FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
-         <Link to={`/user/${user?._id}`}> <FontAwesomeIcon icon={faUser} /> Perfíl</Link>
+         <Link to={`/profile/${user?._id}`}> <FontAwesomeIcon icon={faUser} /> Perfíl</Link>
          <Link to="" onClick={logout}> <FontAwesomeIcon icon={faPowerOff} /> Cerrar sesión</Link>
 
          <Button>Crear evento</Button>
