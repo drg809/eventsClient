@@ -3,6 +3,7 @@ import { Button, Spinner } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import useAuth from '../../hooks/useAuth';
 import { getUserApi } from '../../api/user';
 import BasicLayout from '../../layout/BasicLayout/BasicLayout';
 import BannerAvatar from '../../components/User/BannerAvatar/BannerAvatar';
@@ -12,6 +13,7 @@ function User(props) {
    const { match } = props;
    const { params } = match;
    const [user, setUser] = useState(null);
+   const loggedUser = useAuth();
 
    useEffect(() => {
       getUserApi(params.id).then(response => {
@@ -27,7 +29,7 @@ function User(props) {
          <div className="user__title">
             <h2> {user ? `${user.name} ${user.surname}` : 'El usuario no existe' } </h2>
          </div>
-         <BannerAvatar user={user} />
+         <BannerAvatar user={user} loggedUser={loggedUser} />
          <div>Info usuario</div>
          <div className="user__events">Lista de eventos</div>
       </BasicLayout>
