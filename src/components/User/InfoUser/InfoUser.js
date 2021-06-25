@@ -10,7 +10,7 @@ export default function InfoUser(props) {
       <div className="info-user">
          <h2 className="name">{user?.name} {user?.surname}</h2>
          {user?.web && (
-            <div className="web"> <LinkIcon /> {user.web}</div>
+            <a href={user.web} alt={user.web} target="_blank" rel="noopener noreferrer" > <LinkIcon /> {user.web}</a>
          )}
          {user?.bio && (
             <div className="description">{user.bio}</div>
@@ -20,6 +20,12 @@ export default function InfoUser(props) {
                <p>
                   <LocationIcon />
                   {user.location}
+               </p>
+            )}
+            {user?.date && (
+               <p>
+                  <BirthIcon />
+                  {user.date}
                </p>
             )}
          </div>
