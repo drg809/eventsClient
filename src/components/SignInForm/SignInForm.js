@@ -65,7 +65,7 @@ export default function SignInForm(props) {
             </Button>
          </Form>
       </div>
-   )
+   );
 }
 
 function initialFormValue() {

@@ -90,7 +90,7 @@ export default function SignUpForm(props) {
             </Button>
          </Form>
       </div>
-   )
+   );
 };
 
 function initialFormValue() {

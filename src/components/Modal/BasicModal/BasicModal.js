@@ -24,5 +24,5 @@ export default function BasicModal(props) {
          </Modal.Header>
          <Modal.Body>{children}</Modal.Body>
       </Modal>
-   )
+   );
 }

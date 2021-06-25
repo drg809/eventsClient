@@ -5,8 +5,8 @@ import './Home.scss';
 
 export default function Home() {
    return (
-      <BasicLayout>
+      <BasicLayout className="home">
          <h2>Estamos en home</h2>
       </BasicLayout>
-   )
+   );
 }

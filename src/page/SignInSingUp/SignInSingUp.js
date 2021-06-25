@@ -34,7 +34,7 @@ export default function SignInSingUp(props) {
             {contentModal}
          </BasicModal>
       </>
-   )
+   );
 }
 
 function LeftComponent() {
@@ -56,7 +56,7 @@ function LeftComponent() {
             </h2>
          </div>
       </Col>
-   )
+   );
 }
 
 function RightComponent(props) {
@@ -76,5 +76,5 @@ function RightComponent(props) {
             </Button>
          </div>
       </Col>
-   )
+   );
 }
