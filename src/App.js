@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={user}>
-      { user ? <Routing />  : <SignInSingUp setRefreshCheckLogin={setRefreshCheckLogin} /> }
+      { user ? <Routing setRefreshCheckLogin={setRefreshCheckLogin} />  : <SignInSingUp setRefreshCheckLogin={setRefreshCheckLogin} /> }
       <ToastContainer position='top-right' autoClose={5000} hideProgressBar newestOnTop={false} closeOnClick rtl={false} pauseOnVisibilityChange />
     </AuthContext.Provider>
   );
