@@ -14,9 +14,10 @@ export default function BannerAvatar(props) {
       <div className="banner-avatar" style={{ backgroundImage: `url(${bannerUrl})` }}>
          <div className="avatar" style={{ backgroundImage: `url(${avatarUrl})` }} />
          {user && (
-            <div  className="options">
-               {loggedUser._id === user.id && (
-                  <Button>Editar perfil</Button>
+            <div className="options">
+               {loggedUser._id === user.id && <Button>Editar perfil</Button>}
+               {loggedUser._id !== user.id && (
+                  <Button>Seguir</Button>
                )}
             </div>
          )}
