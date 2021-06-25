@@ -3,12 +3,14 @@ import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { values, size } from 'lodash';
 import { toast } from 'react-toastify';
 import { isValidEmail } from '../../utils/validations';
+import { signUpApi } from '../../api/auth';
  
 import './SignUpForm.scss';
 
 export default function SignUpForm(props) {
    const { setShowModal } = props;
    const [formData, setFormData] = useState(initialFormValue());
+   const [signUpLoading, setSignUpLoading] = useState(false)
 
    const onSubmit = e => {
       e.preventDefault();
@@ -20,9 +22,6 @@ export default function SignUpForm(props) {
          value && validCount++
          return null
       });
-      console.log(validCount)
-      console.log(size(formData))
-      console.log(formData)
 
       if ( validCount !== size(formData) ) {
          toast.warning('Completa todos los campos del formulario.');
@@ -34,7 +33,22 @@ export default function SignUpForm(props) {
          } else if (size(formData.password) < 8) {
             toast.warning('La contraseña tienen que tener al menos 8 caracteres.');
          } else {
-            toast.success('Formulario correcto.');
+            setSignUpLoading(true);
+            signUpApi(formData).then(response => {
+               if (response.code) {
+                  toast.warning(response.message)
+               } else {
+                  toast.success('El registro ha sido correcto');
+                  setShowModal(false);
+                  setFormData(initialFormValue())
+               }
+            })
+            .catch(() => {
+               toast.error('Error del servidor, inténtelo más tarde.');
+            })
+            .finally(() => {
+               setSignUpLoading(false);
+            })
          }
       }
    };
@@ -72,7 +86,7 @@ export default function SignUpForm(props) {
             </Form.Group>
 
             <Button variant='primary' type='submit'>
-               Registrarse
+               { !signUpLoading ? "Registrarse" : <Spinner animation="border"/> }
             </Button>
          </Form>
       </div>
