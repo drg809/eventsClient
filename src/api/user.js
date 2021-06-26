@@ -25,25 +25,42 @@ export function getUserApi(id) {
    })
 }
 
-export function uploadBannerApi(file) {
-   const url = `${API_HOST}/users/banner`;
+export function uploadBannerAvatarApi(file, type) {
+   const url = `${API_HOST}/users/${type}`;
 
-   const formData = new FormData();
-   formData.append('banner', file);
+   const data = new FormData();
+   data.append(`${type}`, file);
 
    const params = {
       method: 'POST',
       headers: {
-         'Content-Type': 'application/json',
          Authorization: `Bearer ${getTokenApi()}`
       },
-      body: formData
+      body: data
    }
 
    return fetch(url, params).then(response => {
       return response.json();
    }).then(result => {
       return result;
+   }).catch(err => {
+      return err;
+   });
+}
+
+export function updateInfoApi(data) {
+   const url = `${API_HOST}/users/profile`;
+
+   const params = {
+      method: 'PUT',
+      headers: {
+         Authorization: `Bearer ${getTokenApi()}`
+      },
+      body: JSON.stringify(data)
+   };
+
+   return fetch(url, params).then(response => {
+      return response;
    }).catch(err => {
       return err;
    });

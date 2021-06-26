@@ -7,7 +7,8 @@ import { toast } from 'react-toastify';
 
 import { API_HOST } from '../../../utils/constant';
 import { CameraIcon } from '../../../utils/Icons';
-import { uploadBannerApi } from '../../../api/user';
+import { uploadBannerAvatarApi } from '../../../api/user';
+import { updateInfoApi } from '../../../api/user';
 
 import './EditUserForm.scss';
 
@@ -55,16 +56,22 @@ export default function EditUserForm(props) {
    };
 
    const onSubmit = e => {
-      console.log('onsubmit');
       e.preventDefault();
-      console.log('onsubmit');
       if (bannerFile) {
-         console.log(bannerFile);
-
-         uploadBannerApi(bannerFile).catch(() => {
+         uploadBannerAvatarApi(bannerFile, 'banner').catch(() => {
             toast.error('Error al subir el banner al servidor');
          })
-      }
+      };
+      if (avatarFile) {
+         uploadBannerAvatarApi(avatarFile, 'avatar').catch(() => {
+            toast.error('Error al subir el avatar al servidor');
+         })
+      };
+      updateInfoApi(formData).then(() => {
+         setShowModal(false);
+      }).catch(() => {
+         toast.error('Error al actualizar los datos.')
+      });
    };
 
    return (
@@ -98,7 +105,7 @@ export default function EditUserForm(props) {
                <DatePicker placeholder='Fecha de nacimiento' locale={es} name='date' selected={new Date(formData.date)} onChange={data => setFormData({ ...formData, date: data })} />
             </Form.Group>
 
-            <Button className='btn-submit' variant='primary'>Actualizar</Button>
+            <Button type='submit' className='btn-submit' variant='primary'>Actualizar</Button>
          </Form>
       </div>
    );
