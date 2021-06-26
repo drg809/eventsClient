@@ -1,0 +1,27 @@
+@import '../../../assets/scss/index.scss';
+
+.events-modal {
+   .modal-content {
+      background-color: $background-grey-dark;
+      border-radius: 25px;
+      overflow: hidden;
+
+      .modal-header {
+         border-bottom: 1px solid $border-grey;
+         padding: 15px;
+
+         .modal-title {
+            svg {
+               width: 15px;
+               height: 15px;
+               fill: $primary;
+               margin-left: 10px;
+
+               &:hover {
+                  cursor: pointer;
+               }
+            }
+         }
+      }
+   }
+}

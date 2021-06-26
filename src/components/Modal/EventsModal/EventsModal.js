@@ -1,0 +1,20 @@
+import React, { useState } from 'react';
+import { Modal, Form, Button } from 'react-bootstrap';
+import { CloseIcon } from '../../../utils/Icons';
+
+import './EventsModal.scss';
+
+export default function EventsModal(props) {
+   const { show, setShow } = props;
+
+   return (
+      <Modal className='events-modal' show={show} onHide={() => setShow(false)} centered size='lg' >
+         <Modal.Header>
+            <Modal.Title>
+               <CloseIcon onClick={() => setShow(false)} />
+            </Modal.Title>
+         </Modal.Header>
+         <Modal.Body>.....</Modal.Body>
+      </Modal>
+   );
+}
