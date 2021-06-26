@@ -7,8 +7,7 @@ import { toast } from 'react-toastify';
 
 import { API_HOST } from '../../../utils/constant';
 import { CameraIcon } from '../../../utils/Icons';
-import { uploadBannerAvatarApi } from '../../../api/user';
-import { updateInfoApi } from '../../../api/user';
+import { uploadBannerAvatarApi, updateInfoApi } from '../../../api/user';
 
 import './EditUserForm.scss';
 
