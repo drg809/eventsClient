@@ -1,0 +1,40 @@
+@import '../../../assets/scss/index.scss';
+
+.events-form {
+   .photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      background-color: $background-dark-light;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: -20px !important;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      svg {
+         width: 30px;
+         fill: $font-light;
+         &:hover {
+            fill: $font-dark;
+         }
+      }
+   }
+
+   form {
+      padding: 0 20px 20px 20px;
+
+      .btn-submit {
+         position: absolute;
+         top: -44px;
+         right: 25px;
+         border-radius: 50px;
+         font-size: 16px;
+         padding: 4px 15px;
+      }
+   }
+}
