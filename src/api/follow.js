@@ -22,3 +22,25 @@ export function checkFollowApi(userID) {
       return err;
    });
 }
+
+export function followUserApi(userID) {
+   const url = `${API_HOST}/users/follow?id=${userID}`;
+
+   const params = {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      }
+   };
+
+   return fetch(url, params).then(response => {
+      return response.json();
+   })
+   .then(result => {
+      return result;
+   })
+   .catch(err => {
+      return err;
+   });
+}
