@@ -44,3 +44,25 @@ export function followUserApi(userID) {
       return err;
    });
 }
+
+export function unFollowUserApi(userID) {
+   const url = `${API_HOST}/users/unfollow?id=${userID}`;
+
+   const params = {
+      method: 'DELETE',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      }
+   };
+
+   return fetch(url, params).then(response => {
+      return response.json();
+   })
+   .then(result => {
+      return result;
+   })
+   .catch(err => {
+      return err;
+   });
+}

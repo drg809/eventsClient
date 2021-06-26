@@ -5,7 +5,7 @@ import AvatarNotFound from '../../../assets/png/avatar-no-found.png';
 import { API_HOST } from '../../../utils/constant';
 import ConfigModal from '../../Modal/ConfigModal/ConfigModal';
 import EditUserForm from '../EditUserForm/EditUserForm';
-import { checkFollowApi, followUserApi } from '../../../api/follow';
+import { checkFollowApi, followUserApi, unFollowUserApi } from '../../../api/follow';
 
 import './BannerAvatar.scss';
 
@@ -18,14 +18,22 @@ export default function BannerAvatar(props) {
    const avatarUrl = user?.avatar ? `${API_HOST}/users/avatar?id=${user.id}` : AvatarNotFound;
 
    useEffect(() => {
-      checkFollowApi(user?.id).then(response => {
-         response?.status ? setFollowing(true) : setFollowing(false);
-      });
+      if (user) {
+         checkFollowApi(user.id).then(response => {
+            response?.status ? setFollowing(true) : setFollowing(false);
+         });
+      }
       setReloadFollow(false);
    }, [user, reloadFollow]);
 
    const onFollow = () => {
       followUserApi(user.id).then(() => {
+         setReloadFollow(true);
+      });
+   };
+
+   const onUnfollow = () => {
+      unFollowUserApi(user.id).then(() => {
          setReloadFollow(true);
       });
    };
@@ -38,7 +46,7 @@ export default function BannerAvatar(props) {
                {loggedUser._id === user.id && <Button onClick={() => setShowModal(true)} >Editar perfil</Button>}
                {loggedUser._id !== user.id && (
                   following !== null && (
-                     (following ? <Button>Siguiendo</Button> : <Button onClick={onFollow} >Seguir</Button>)
+                     (following ? <Button onClick={onUnfollow} className='unfollow' > <span>Siguiendo</span> </Button> : <Button onClick={onFollow} >Seguir</Button>)
                   )
                )}
             </div>
