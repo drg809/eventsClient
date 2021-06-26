@@ -17,7 +17,8 @@ export default function EditUserForm(props) {
    const [bannerFile, setBannerFile] = useState(null);
    const [avatarUrl, setAvatarUrl] = useState(
       user?.avatar ? `${API_HOST}/users/avatar?id=${user.id}` : null
-   )
+   );
+   const [avatarFile, setAvatarFile] = useState(null);
 
    // eslint-disable-next-line react-hooks/exhaustive-deps
    const onDropBanner = useCallback(acceptedFile => {
@@ -34,11 +35,13 @@ export default function EditUserForm(props) {
 
    // eslint-disable-next-line react-hooks/exhaustive-deps
    const onDropAvatar = useCallback(acceptedFile => {
-
+      const file = acceptedFile[0];
+      setAvatarUrl(URL.createObjectURL(file));
+      setAvatarFile(file);
    });
 
    const { getRootProps: getRootAvatarProps, getInputProps: getInputAvatarProps } = useDropzone({
-      accept: "image/jpeg image/png",
+      accept: ["image/jpeg", "image/png"],
       noKeyboard: true,
       multiple: false,
       onDrop: onDropAvatar
