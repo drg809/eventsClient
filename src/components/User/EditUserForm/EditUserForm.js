@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button, Spinner } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import es from 'date-fns/locale/es';
 import { useDropzone } from 'react-dropzone';
@@ -23,6 +23,7 @@ export default function EditUserForm(props) {
       user?.avatar ? `${API_HOST}/users/avatar?id=${user.id}` : null
    );
    const [avatarFile, setAvatarFile] = useState(null);
+   const [loading, setLoading] = useState(false);
 
    // eslint-disable-next-line react-hooks/exhaustive-deps
    const onDropBanner = useCallback(acceptedFile => {
@@ -55,23 +56,26 @@ export default function EditUserForm(props) {
       setFormData({ ...formData, [e.target.name]: e.target.value });
    };
 
-   const onSubmit = e => {
+   const onSubmit = async e => {
       e.preventDefault();
+      setLoading(true);
       if (bannerFile) {
-         uploadBannerAvatarApi(bannerFile, 'banner').catch(() => {
+         await uploadBannerAvatarApi(bannerFile, 'banner').catch(() => {
             toast.error('Error al subir el banner al servidor');
          })
       };
       if (avatarFile) {
-         uploadBannerAvatarApi(avatarFile, 'avatar').catch(() => {
+         await uploadBannerAvatarApi(avatarFile, 'avatar').catch(() => {
             toast.error('Error al subir el avatar al servidor');
          })
       };
-      updateInfoApi(formData).then(() => {
+      await updateInfoApi(formData).then(() => {
          setShowModal(false);
       }).catch(() => {
          toast.error('Error al actualizar los datos.')
       });
+      setLoading(false);
+      window.location.reload();
    };
 
    return (
@@ -105,7 +109,9 @@ export default function EditUserForm(props) {
                <DatePicker placeholder='Fecha de nacimiento' locale={es} name='date' selected={new Date(formData.date)} onChange={data => setFormData({ ...formData, date: data })} />
             </Form.Group>
 
-            <Button type='submit' className='btn-submit' variant='primary'>Actualizar</Button>
+            <Button type='submit' className='btn-submit' variant='primary'>
+               {loading && <Spinner animation='border' size='sm' />} Actualizar
+            </Button>
          </Form>
       </div>
    );
@@ -113,11 +119,11 @@ export default function EditUserForm(props) {
 
 function initialValue(user) {
    return {
-      name: user.name || '', 
-      surname: user.surname || '', 
-      bio: user.bio || '', 
-      web: user.web || '', 
-      date: user.date || '', 
+      name: user.name || '',
+      surname: user.surname || '',
+      bio: user.bio || '',
+      web: user.web || '',
+      date: user.date || '',
       location: user.location || ''
    }
 }
