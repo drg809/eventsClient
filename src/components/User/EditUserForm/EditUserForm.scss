@@ -1,6 +1,30 @@
 @import '../../../assets/scss/index.scss';
 
 .edit-user-form {
+   .banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      background-color: $background-dark-light;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: -20px !important;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      svg {
+         width: 30px;
+         fill: $font-light;
+         &:hover {
+            fill: $font-dark;
+         }
+      }
+   }
+
    form {
       padding: 0 20px 20px 20px;
 
