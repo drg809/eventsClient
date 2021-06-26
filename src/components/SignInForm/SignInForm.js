@@ -15,7 +15,6 @@ export default function SignInForm(props) {
 
    const onSubmit = e => {
       e.preventDefault();
-      console.log(formData);
       let validCount = 0;
       values(formData).some(value => {
          value && validCount++
@@ -51,17 +50,17 @@ export default function SignInForm(props) {
    };
 
    return (
-      <div className="sign-in-form">
+      <div className='sign-in-form'>
          <h2>Entrar</h2>
          <Form onSubmit={onSubmit} onChange={onChange}>
             <Form.Group>
-               <Form.Control type="email" name="email" placeholder="Correo electrónico" defaultValue={formData.email} />
+               <Form.Control type='email' name='email' placeholder='Correo electrónico' defaultValue={formData.email} />
             </Form.Group>
             <Form.Group>
-               <Form.Control type="password" name="password" placeholder="Constraseña" defaultValue={formData.password} />
+               <Form.Control type='password' name='password' placeholder='Constraseña' defaultValue={formData.password} />
             </Form.Group>
-            <Button variant="primary" type="submit">
-               {!signInLoading ? 'Iniciar sesión' : <Spinner animation="border" /> }
+            <Button variant='primary' type='submit'>
+               {!signInLoading ? 'Iniciar sesión' : <Spinner animation='border' /> }
             </Button>
          </Form>
       </div>
@@ -70,7 +69,7 @@ export default function SignInForm(props) {
 
 function initialFormValue() {
    return {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
    }
 }

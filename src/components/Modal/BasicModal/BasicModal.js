@@ -11,15 +11,15 @@ export default function BasicModal(props) {
 
    return (
       <Modal
-         className="basic-modal"
+         className='basic-modal'
          show={show}
          onHide={() => setShow(false)}
          centered
-         size="lg"
+         size='lg'
       >
          <Modal.Header>
             <Modal.Title>
-               <img src={LogoWhiteEvents} alt="events" />
+               <img src={LogoWhiteEvents} alt='events' />
             </Modal.Title>
          </Modal.Header>
          <Modal.Body>{children}</Modal.Body>

@@ -9,13 +9,13 @@ export default function InfoUser(props) {
    const { user } = props;
 
    return (
-      <div className="info-user">
-         <h2 className="name">{user?.name} {user?.surname}</h2>
+      <div className='info-user'>
+         <h2 className='name'>{user?.name} {user?.surname}</h2>
 
          {user?.bio && (
-            <div className="description">{user.bio}</div>
+            <div className='description'>{user.bio}</div>
          )}
-         <div className="more-info">
+         <div className='more-info'>
             {user?.location && (
                <p>
                   <LocationIcon />
@@ -23,7 +23,7 @@ export default function InfoUser(props) {
                </p>
             )}
             {user?.web && (
-               <a href={user.web} alt={user.web} target="_blank" rel="noopener noreferrer" > <LinkIcon /> {user.web}</a>
+               <a href={user.web} alt={user.web} target='_blank' rel='noopener noreferrer' > <LinkIcon /> {user.web}</a>
             )}
             {user?.date && (
                <p>

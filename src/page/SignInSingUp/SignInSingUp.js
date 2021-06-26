@@ -24,7 +24,7 @@ export default function SignInSingUp(props) {
 
    return (
       <>
-         <Container className="signin-signup" fluid>
+         <Container className='signin-signup' fluid>
             <Row>
                <LeftComponent />
                <RightComponent openModal={openModal} setShowModal={setShowModal} setRefreshCheckLogin={setRefreshCheckLogin} />
@@ -39,8 +39,8 @@ export default function SignInSingUp(props) {
 
 function LeftComponent() {
    return (
-      <Col className="signin-signup__left" xs={6}>
-         <img src={LogoEvents} alt="events"/>
+      <Col className='signin-signup__left' xs={6}>
+         <img src={LogoEvents} alt='events'/>
          <div>
             <h2>
                <FontAwesomeIcon icon={faUsers} />
@@ -63,15 +63,15 @@ function RightComponent(props) {
    const { openModal, setShowModal, setRefreshCheckLogin } = props;
 
    return (
-      <Col className="signin-signup__right">
+      <Col className='signin-signup__right'>
          <div>
-            <img src={LogoWhiteEvents} alt="events"/>
+            <img src={LogoWhiteEvents} alt='events'/>
             <h2>Mira las actividades de Don Bosco.</h2>
             <h3>Únete a la comunidad de Don Bosco hoy mismo.</h3>
-            <Button onClick={ () => openModal(<SignUpForm setShowModal={setShowModal} />) } variant="primary">
+            <Button onClick={ () => openModal(<SignUpForm setShowModal={setShowModal} />) } variant='primary'>
                Regístrate
             </Button>
-            <Button onClick={ () => openModal(<SignInForm setRefreshCheckLogin={setRefreshCheckLogin}  />) } variant="outline-primary">
+            <Button onClick={ () => openModal(<SignInForm setRefreshCheckLogin={setRefreshCheckLogin}  />) } variant='outline-primary'>
                Iniciar sesion
             </Button>
          </div>

@@ -26,13 +26,13 @@ function User(props) {
    }, [params]);
    
    return (
-      <BasicLayout className="user">
-         <div className="user__title">
+      <BasicLayout className='user'>
+         <div className='user__title'>
             <h2> {user ? `${user.name} ${user.surname}` : 'El usuario no existe' } </h2>
          </div>
          <BannerAvatar user={user} loggedUser={loggedUser} />
          <InfoUser user={user} />
-         <div className="user__events">Lista de eventos</div>
+         <div className='user__events'>Lista de eventos</div>
       </BasicLayout>
    );
 }

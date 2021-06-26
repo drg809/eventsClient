@@ -3,9 +3,12 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import es from 'date-fns/locale/es';
 import { useDropzone } from 'react-dropzone';
+import { toast } from 'react-toastify';
 
 import { API_HOST } from '../../../utils/constant';
 import { CameraIcon } from '../../../utils/Icons';
+import { uploadBannerApi } from '../../../api/user';
+
 import './EditUserForm.scss';
 
 export default function EditUserForm(props) {
@@ -27,7 +30,7 @@ export default function EditUserForm(props) {
       setBannerFile(file);
    });
    const { getRootProps: getRootBannerProps, getInputProps: getInputBannerProps } = useDropzone({
-      accept: ["image/jpeg", "image/png"],
+      accept: ['image/jpeg', 'image/png'],
       noKeyboard: true,
       multiple: false,
       onDrop: onDropBanner
@@ -41,7 +44,7 @@ export default function EditUserForm(props) {
    });
 
    const { getRootProps: getRootAvatarProps, getInputProps: getInputAvatarProps } = useDropzone({
-      accept: ["image/jpeg", "image/png"],
+      accept: ['image/jpeg', 'image/png'],
       noKeyboard: true,
       multiple: false,
       onDrop: onDropAvatar
@@ -52,7 +55,16 @@ export default function EditUserForm(props) {
    };
 
    const onSubmit = e => {
+      console.log('onsubmit');
       e.preventDefault();
+      console.log('onsubmit');
+      if (bannerFile) {
+         console.log(bannerFile);
+
+         uploadBannerApi(bannerFile).catch(() => {
+            toast.error('Error al subir el banner al servidor');
+         })
+      }
    };
 
    return (

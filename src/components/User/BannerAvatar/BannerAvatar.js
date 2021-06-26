@@ -14,10 +14,10 @@ export default function BannerAvatar(props) {
    const avatarUrl = user?.avatar ? `${API_HOST}/users/avatar?id=${user.id}` : AvatarNotFound;
 
    return (
-      <div className="banner-avatar" style={{ backgroundImage: `url(${bannerUrl})` }}>
-         <div className="avatar" style={{ backgroundImage: `url(${avatarUrl})` }} />
+      <div className='banner-avatar' style={{ backgroundImage: `url(${bannerUrl})` }}>
+         <div className='avatar' style={{ backgroundImage: `url(${avatarUrl})` }} />
          {user && (
-            <div className="options">
+            <div className='options'>
                {loggedUser._id === user.id && <Button onClick={() => setShowModal(true)} >Editar perfil</Button>}
                {loggedUser._id !== user.id && (
                   <Button>Seguir</Button>

@@ -8,7 +8,7 @@ export default function ConfigModal(props) {
    const { show, setShow, title, children } = props;
 
    return (
-      <Modal className="config-modal" show={show} onHide={ () => setShow(false) } centered size="lg" >
+      <Modal className='config-modal' show={show} onHide={ () => setShow(false) } centered size='lg' >
          <Modal.Header>
             <Modal.Title>
                <CloseIcon onClick={() => setShow(false)} />

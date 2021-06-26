@@ -1,5 +1,5 @@
-import { API_HOST, TOKEN_KEY } from "../utils/constant";
-import jwtDecode from "jwt-decode";
+import { API_HOST, TOKEN_KEY } from '../utils/constant';
+import jwtDecode from 'jwt-decode';
 
 export function signUpApi(user) {
    const url = `${API_HOST}/signIn`;
@@ -13,7 +13,7 @@ export function signUpApi(user) {
    const params = {
       method: 'POST',
       headers: {
-         "Content-Type": "application/json"
+         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userTemp)
    };
@@ -22,7 +22,7 @@ export function signUpApi(user) {
       if (response.status >= 200 && response.status < 300) {
          return response.json();
       }
-      return { code: 404, message: "Email no disponible" }
+      return { code: 404, message: 'Email no disponible' }
    }).then(result => {
       return result;
    })
@@ -42,7 +42,7 @@ export function singInApi(user) {
    const params = {
       method: 'POST',
       headers: {
-         "Content-Type": "application/json",
+         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data)
    };

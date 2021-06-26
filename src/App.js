@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import SignInSingUp from './page/SignInSingUp'
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from './utils/context';

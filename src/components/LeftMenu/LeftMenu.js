@@ -20,13 +20,13 @@ export default function LeftMenu(props) {
    }
 
    return (
-      <div className="left-menu">
-         <img className="logo" src={LogoWhite} alt="eventos" />
+      <div className='left-menu'>
+         <img className='logo' src={LogoWhite} alt='eventos' />
 
-         <Link to="/"> <FontAwesomeIcon icon={faHome} /> Inicio</Link>
-         <Link to="/users"> <FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
+         <Link to='/'> <FontAwesomeIcon icon={faHome} /> Inicio</Link>
+         <Link to='/users'> <FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
          <Link to={`/profile/${user?._id}`}> <FontAwesomeIcon icon={faUser} /> Perfíl</Link>
-         <Link to="" onClick={logout}> <FontAwesomeIcon icon={faPowerOff} /> Cerrar sesión</Link>
+         <Link to='' onClick={logout}> <FontAwesomeIcon icon={faPowerOff} /> Cerrar sesión</Link>
 
          <Button>Crear evento</Button>
       </div>

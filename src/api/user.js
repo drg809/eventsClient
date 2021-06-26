@@ -1,5 +1,4 @@
 import { API_HOST } from '../utils/constant';
-
 import { getTokenApi } from './auth';
 
 export function getUserApi(id) {
@@ -8,7 +7,7 @@ export function getUserApi(id) {
    const params = {
       method: 'GET',
       headers: {
-         "Content-Type": "application/json",
+         'Content-Type': 'application/json',
          Authorization: `Bearer ${getTokenApi()}`
       }
    }
@@ -24,4 +23,28 @@ export function getUserApi(id) {
    .catch(err => {
       return err;
    })
+}
+
+export function uploadBannerApi(file) {
+   const url = `${API_HOST}/users/banner`;
+
+   const formData = new FormData();
+   formData.append('banner', file);
+
+   const params = {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      },
+      body: formData
+   }
+
+   return fetch(url, params).then(response => {
+      return response.json();
+   }).then(result => {
+      return result;
+   }).catch(err => {
+      return err;
+   });
 }
