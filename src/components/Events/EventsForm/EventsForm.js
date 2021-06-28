@@ -1,4 +1,4 @@
-import React, { useState, useCallback, history } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Form, Row, Col, Button, Spinner } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import es from 'date-fns/locale/es';
