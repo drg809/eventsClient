@@ -9,6 +9,7 @@ import { getUsetEventsApi } from '../../api/event';
 import BasicLayout from '../../layout/BasicLayout/BasicLayout';
 import BannerAvatar from '../../components/User/BannerAvatar/BannerAvatar';
 import InfoUser from '../../components/User/InfoUser/InfoUser';
+import ListEvents from '../../components/Events/ListEvents/ListEvents';
 import './User.scss';
 
 function User(props) {
@@ -42,7 +43,10 @@ function User(props) {
          </div>
          <BannerAvatar user={user} loggedUser={loggedUser} />
          <InfoUser user={user} />
-         <div className='user__events'>Lista de eventos</div>
+         <div className='user__events'>
+            <h3>Eventos</h3>
+            {events && <ListEvents events={events} /> }
+         </div>
       </BasicLayout>
    );
 }
