@@ -91,10 +91,10 @@ export default function EditUserForm(props) {
             <Form.Group>
                <Row>
                   <Col>
-                     <Form.Control type='text' placeholder='Nombre' name='name' defaultValue={formData.name} onChange={onChange} ></Form.Control>
+                     <Form.Control type='text' placeholder='Nombre' name='name' defaultValue={formData.name} onChange={onChange} />
                   </Col>
                   <Col>
-                     <Form.Control type='text' placeholder='Apellido' name='surname' defaultValue={formData.surname} onChange={onChange} ></Form.Control>
+                     <Form.Control type='text' placeholder='Apellido' name='surname' defaultValue={formData.surname} onChange={onChange} />
                   </Col>
                </Row>
             </Form.Group>

@@ -5,11 +5,7 @@ import { CloseIcon } from '../../../utils/Icons';
 import './EventsModal.scss';
 
 export default function EventsModal(props) {
-   const { show, setShow } = props;
-
-   const onSubmit = () => {
-
-   };
+   const { show, setShow, children } = props;
 
    return (
       <Modal className='events-modal' show={show} onHide={() => setShow(false)} centered size='lg' >
@@ -19,10 +15,7 @@ export default function EventsModal(props) {
             </Modal.Title>
          </Modal.Header>
          <Modal.Body>
-            <Form onSubmit={onSubmit}>
-               <Form.Control as='textArea' row={6} placeholder='Descripción del evento' />
-               <Button type='submit'>Guardar</Button>
-            </Form>
+           {children}
          </Modal.Body>
       </Modal>
    );

@@ -11,6 +11,8 @@
       background-position: center;
       background-repeat: no-repeat;
       padding: -20px !important;
+      margin-bottom: 60px;
+
 
       &:hover {
          cursor: pointer;
@@ -28,13 +30,19 @@
    form {
       padding: 0 20px 20px 20px;
 
-      .btn-submit {
-         position: absolute;
-         top: -44px;
-         right: 25px;
-         border-radius: 50px;
-         font-size: 16px;
-         padding: 4px 15px;
+      .count {
+         margin: 15px;
+      }
+
+      div.formSubmit {
+         text-align: end;
+         margin-bottom: 30px;
+
+         .btn-submit {
+            border-radius: 50px;
+            font-size: 16px;
+            padding: 4px 15px;
+         }
       }
    }
 }

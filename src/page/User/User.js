@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 import useAuth from '../../hooks/useAuth';
 import { getUserApi } from '../../api/user';
+import { getUsetEventsApi } from '../../api/event';
 import BasicLayout from '../../layout/BasicLayout/BasicLayout';
 import BannerAvatar from '../../components/User/BannerAvatar/BannerAvatar';
 import InfoUser from '../../components/User/InfoUser/InfoUser';
@@ -14,6 +15,7 @@ function User(props) {
    const { match } = props;
    const { params } = match;
    const [user, setUser] = useState(null);
+   const [events, setEvents] = useState(null)
    const loggedUser = useAuth();
 
    useEffect(() => {
@@ -22,6 +24,14 @@ function User(props) {
          setUser(response);
       }).catch(() => {
          toast.error('El usuario que has visitado no existe.');
+      })
+   }, [params]);
+
+   useEffect(() => {
+      getUsetEventsApi(params.id, 1).then(response => {
+         setEvents(response);
+      }).catch(() => {
+         setEvents([]);
       })
    }, [params]);
    
