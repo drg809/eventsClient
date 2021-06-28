@@ -54,6 +54,29 @@ export function createEventApi(data) {
    const params = {
       method: 'POST',
       headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      },
+      body: JSON.stringify(data)
+   };
+
+   return fetch(url, params).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+         return {code: response.status, message: 'Evento creado.'};
+      }
+      return {code: 500, message: 'Error del servidor.'};
+   }).catch(err => {
+      return err;
+   });
+}
+
+export function updateEventApi(data) {
+   const url = `${API_HOST}/events`;
+
+   const params = {
+      method: 'PUT',
+      headers: {
+         'Content-Type': 'application/json',
          Authorization: `Bearer ${getTokenApi()}`
       },
       body: JSON.stringify(data)
@@ -66,20 +89,20 @@ export function createEventApi(data) {
    });
 }
 
-export function updateEventApi(data) {
-   const url = `${API_HOST}/events`;
+export function getUsetEventsApi(userID, page) {
+   const url = `${API_HOST}/events/user?id=${userID}&page=${page}`;
 
    const params = {
-      method: 'PUT',
+      method: 'GET',
       headers: {
+         'Content-Type': 'application/json',
          Authorization: `Bearer ${getTokenApi()}`
-      },
-      body: JSON.stringify(data)
+      }
    };
 
    return fetch(url, params).then(response => {
-      return response;
+      return response.json();
    }).catch(err => {
       return err;
-   });
+   })
 }
