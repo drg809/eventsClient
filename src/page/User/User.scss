@@ -18,5 +18,19 @@
          font-size: 18px;
          border-bottom: 1px solid $border-grey;
       }
+
+      > .btn.btn-primary {
+         display: flex;
+         margin: 0 auto;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         background-color: transparent;
+         border: 0;
+
+         &:focus, &:hover {
+            background-color: transparent !important;
+            color: $primary;
+         }
+      }
    }
 }

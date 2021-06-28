@@ -16,7 +16,9 @@ function User(props) {
    const { match } = props;
    const { params } = match;
    const [user, setUser] = useState(null);
-   const [events, setEvents] = useState(null)
+   const [events, setEvents] = useState(null);
+   const [page, setPage] = useState(1);
+   const [loadingEvents, setLoadingEvents] = useState(false);
    const loggedUser = useAuth();
 
    useEffect(() => {
@@ -35,6 +37,21 @@ function User(props) {
          setEvents([]);
       })
    }, [params]);
+
+   const moreData = () => {
+      const pageTemp = page +1;
+      setLoadingEvents(true);
+
+      getUsetEventsApi(params.id, pageTemp).then(response => {
+         if(!response) {
+            setLoadingEvents(0);
+         } else {
+            setEvents([...events, ...response]);
+            setPage(pageTemp);
+            setLoadingEvents(false);
+         }
+      })
+   }
    
    return (
       <BasicLayout className='user'>
@@ -46,6 +63,11 @@ function User(props) {
          <div className='user__events'>
             <h3>Eventos</h3>
             {events && <ListEvents events={events} /> }
+            <Button onClick={moreData}>
+               {!loadingEvents ? (
+                  loadingEvents !== 0 && 'Más eventos'
+               ) : <Spinner as='span' animation='grow' size='sm' role='status' aria-hidden='true' /> }
+            </Button>
          </div>
       </BasicLayout>
    );
