@@ -2,9 +2,15 @@
 import Home from '../page/Home/Home';
 import User from '../page/User/User';
 import CreateEvents from '../page/Events/CreateEvents/CreateEvents';
+import Users from '../page/Users/Users';
 import Error404 from '../page/Error404/Error404';
 
 export default [
+   {
+      path: '/users',
+      exact: true,
+      page: Users
+   },
    {
       path: '/profile/:id',
       exact: true,
