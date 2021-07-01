@@ -13,7 +13,7 @@ import ListEvents from '../../components/Events/ListEvents/ListEvents';
 import './User.scss';
 
 function User(props) {
-   const { match } = props;
+   const { match, setRefreshCheckLogin } = props;
    const { params } = match;
    const [user, setUser] = useState(null);
    const [events, setEvents] = useState(null);
@@ -54,7 +54,7 @@ function User(props) {
    }
    
    return (
-      <BasicLayout className='user'>
+      <BasicLayout className='user' setRefreshCheckLogin={setRefreshCheckLogin}>
          <div className='user__title'>
             <h2> {user ? `${user.name} ${user.surname}` : 'El usuario no existe' } </h2>
          </div>

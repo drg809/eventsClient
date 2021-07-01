@@ -46,4 +46,16 @@
          }
       }
    }
+
+   &__loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 50px;
+
+      > div {
+         margin-bottom: 10px;
+      }
+   }
 }
