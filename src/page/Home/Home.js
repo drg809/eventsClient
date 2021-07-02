@@ -8,7 +8,11 @@ export default function Home(props) {
 
    return (
       <BasicLayout className='home' setRefreshCheckLogin={setRefreshCheckLogin} >
-         <h2>Estamos en home</h2>
+         <div className='home__title'>
+            <h2>Inicio</h2>
+         </div>
+         <p>Lista de Eventos</p>
+         <p>Cargar más</p>
       </BasicLayout>
    );
 }
