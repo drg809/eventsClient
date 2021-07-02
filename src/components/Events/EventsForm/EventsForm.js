@@ -36,7 +36,6 @@ export default function EventsForm() {
 
    const onSubmit = async e => {
       e.preventDefault();
-      console.log(formData);
 
       if (size(formData.name) < 1) {
          toast.warning('El nombre del evento no puede esta vacío.');

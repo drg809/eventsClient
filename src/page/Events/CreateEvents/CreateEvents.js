@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import BasicLayout from '../../../layout/BasicLayout/BasicLayout';
 import EventsForm from '../../../components/Events/EventsForm/EventsForm';
@@ -6,10 +7,13 @@ import EventsForm from '../../../components/Events/EventsForm/EventsForm';
 
 import './CreateEvents.scss';
 
-export default function CreateEvents() {
+function CreateEvents(props) {
+   const { setRefreshCheckLogin } = props;
    return (
-      <BasicLayout className='event'>
+      <BasicLayout setRefreshCheckLogin={setRefreshCheckLogin} className='event'>
          <EventsForm />
       </BasicLayout>
    );
 }
+
+export default withRouter(CreateEvents);
