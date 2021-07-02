@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faUsers, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
-import EventsForm from '../Events/EventsForm/EventsForm';
 import { logoutApi } from '../../api/auth';
 import useAuth from '../../hooks/useAuth';
 import EventsModal from '../Modal/EventsModal/EventsModal';
