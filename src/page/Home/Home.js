@@ -16,12 +16,12 @@ export default function Home(props) {
    useEffect(() => {
       getEventsFollowerApi(page).then(response => {
          setEvents(formatModel(response));
-         !events ? setEvents(formatModel(response)) : (
+         !events && response ? setEvents(formatModel(response)) : (
             !response ? setLoadingEvents(0) : (
                setEvents([...events, ...formatModel(response)]) && setLoadingEvents(false)
             )
          )
-      });
+      }).catch(() => {});
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [page]);
 
@@ -38,7 +38,7 @@ export default function Home(props) {
          {events && <ListEvents events={events} /> }
          <Button onClick={moreData} className='load-more'>
             {!loadingEvents ? (
-               loadingEvents !== 0 && 'Cargar eventos'
+               loadingEvents !== 0 ? 'Cargar eventos' : 'No hay eventos'
             ) : (
                <Spinner as='span' animation='grow' size='sm' role='status' aria-hidden='true' />
             )}
