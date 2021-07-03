@@ -49,7 +49,6 @@ export default function Home(props) {
 
 function formatModel(events) {
    const eventsTemp = [];
-   console.log(events);
    events.forEach(event => {
       eventsTemp.push({
          id: event.Event.id,
@@ -60,6 +59,5 @@ function formatModel(events) {
          date: event.Event.date
       })
    });
-   console.log(eventsTemp);
    return eventsTemp;
 }

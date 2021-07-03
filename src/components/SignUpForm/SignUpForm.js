@@ -18,7 +18,6 @@ export default function SignUpForm(props) {
 
       let validCount = 0;
       values(formData).some(value => {
-         console.log(value)
          value && validCount++
          return null
       });
