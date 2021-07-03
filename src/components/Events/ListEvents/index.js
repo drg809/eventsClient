@@ -1,1 +1,1 @@
-export { default } from './ListTweets';
+export { default } from './ListEvents';
