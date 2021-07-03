@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Modal, Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { Modal } from 'react-bootstrap';
 import { CloseIcon } from '../../../utils/Icons';
 
 import './EventsModal.scss';

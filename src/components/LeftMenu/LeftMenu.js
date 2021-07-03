@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faUsers, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 import { logoutApi } from '../../api/auth';
 import useAuth from '../../hooks/useAuth';
-import EventsModal from '../Modal/EventsModal/EventsModal';
 import LogoWhite from '../../assets/png/logo-white.png';
 
 import './LeftMenu.scss';
