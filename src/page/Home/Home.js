@@ -49,16 +49,17 @@ export default function Home(props) {
 
 function formatModel(events) {
    const eventsTemp = [];
-
-   events?.forEach(event => {
+   console.log(events);
+   events.forEach(event => {
       eventsTemp.push({
-         id: event.id,
-         userId: event.UserFollowId,
-         name: event.name,
-         detail: event.detail,
-         photo: event.photo,
-         date: event.date
+         id: event.Event.id,
+         userId: event.userFollowId,
+         name: event.Event.name,
+         detail: event.Event.detail,
+         photo: event.Event.photo,
+         date: event.Event.date
       })
    });
+   console.log(eventsTemp);
    return eventsTemp;
 }
