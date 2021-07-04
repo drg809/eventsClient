@@ -39,7 +39,7 @@ function Event(props) {
    }, [event]);
 
    return (
-      
+      <Link to={`/events?id=${event.id}`}>
          <div className='event' >
             <Image className='photo' src={photoUrl} />
             <div>
@@ -53,10 +53,9 @@ function Event(props) {
                      {userInfo?.name} {userInfo?.surname}
                   </div>
                </div>
-               {/* <div dangerouslySetInnerHTML={{__html: replaceURLWithHTMLLinks(event.detail)}} /> */}
-               <div>{event.detail}</div>
+               <div dangerouslySetInnerHTML={{__html: replaceURLWithHTMLLinks(event.detail)}} />
             </div>
          </div>
-
+      </Link>
    );
 }
