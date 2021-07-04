@@ -8,7 +8,7 @@ import Error404 from '../page/Error404/Error404';
 
 export default [
    {
-      path: '/events',
+      path: '/events/:id',
       exact: true,
       page: InfoEvents
    },
