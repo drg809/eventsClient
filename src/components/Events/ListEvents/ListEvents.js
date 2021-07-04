@@ -39,7 +39,7 @@ function Event(props) {
    }, [event]);
 
    return (
-      <Link to={`/events?id=${event.id}`}>
+      <Link to={`/events/${event.id}`}>
          <div className='event' >
             <Image className='photo' src={photoUrl} />
             <div>
