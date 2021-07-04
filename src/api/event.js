@@ -103,3 +103,21 @@ export function getEventsFollowerApi(paramsUrl) {
    });
 
 }
+
+export function getEventByIdApi(eventID) {
+   const url = `${API_HOST}/events/info?id=${eventID}`;
+
+   const params = {
+      method: 'GET',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      }
+   };
+
+   return fetch(url, params).then(response => {
+      return response.json();
+   }).catch(err => {
+      return err;
+   });
+}
