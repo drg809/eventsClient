@@ -83,7 +83,7 @@ function formatModel(events) {
    const eventsTemp = [];
    events.forEach(event => {
       eventsTemp.push({
-         id: event.Event.id,
+         id: event.Event._id,
          userId: event.userFollowId,
          name: event.Event.name,
          detail: event.Event.detail,

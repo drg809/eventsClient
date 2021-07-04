@@ -17,15 +17,20 @@
          height: 25px;
          margin-right: 10px;
       }
-
-      .name {
-         font-weight: bold;
-
-         span {
-            margin-left: 10px;
-            font-size: 12px;
-            font-weight: normal;
+      >div{
+         width: 100%;
+         .name {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+   
+            span {
+               margin-left: 10px;
+               font-size: 12px;
+               font-weight: normal;
+            }
          }
       }
+      
    }
 }
