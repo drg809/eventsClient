@@ -36,14 +36,16 @@ export default function ParticipateForm(props) {
 
    return (
       <div className='participate-form'>
-         <p>Pulsa 'continuar' para confirmar la participación en el evento.</p>
          <Form onSubmit={onSubmit} >
+            <p>Pulsa 'continuar' para confirmar la participación en el evento.</p>
             <Form.Group>
                <Form.Control as='textarea' row='3' placeholder='Introduce aquí alguna nota cómo indicación para los organizadores, alergias que puedas tener, información complementaría que quieras pedir, etc...' type='text' name='details' defaultValue={formData.details} onChange={onChange} />
             </Form.Group>
-            <Button type='submit' className='btn-submit' variant='primary'>
-               {loading && <Spinner animation='border' size='sm' />} Continuar
-            </Button>
+            <div className='formSubmit'>
+               <Button type='submit' className='btn-submit' variant='primary'>
+                  {loading && <Spinner animation='border' size='sm' />} Continuar
+               </Button>
+            </div>
          </Form>
       </div>
    );

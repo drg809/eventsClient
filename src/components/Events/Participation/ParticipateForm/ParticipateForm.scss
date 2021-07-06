@@ -1,39 +1,18 @@
-@import '../../../../assets/scss/index.scss';
+@import "../../../../assets/scss/index.scss";
 
 .participate-form {
-  .modal-content {
-    background-color: $background-grey-dark;
-    border-radius: 25px;
+  form {
+    padding: 0 20px 20px 20px;
 
-    .modal-header {
-      border-bottom: 1px solid $border-grey;
-      padding: 15px;
+    div.formSubmit {
+      text-align: end;
+      margin-bottom: 30px;
 
-      .modal-title {
-        display: flex;
-        align-items: center;
-
-        svg {
-          width: 15px;
-          height: 15px;
-          fill: $primary;
-          margin-left: 10px;
-          margin-right: 20px;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
-
-        h2 {
-          font-size: 18px;
-          margin: 0;
-        }
+      .btn-submit {
+        border-radius: 50px;
+        font-size: 16px;
+        padding: 4px 15px;
       }
-    }
-
-    .modal-body {
-      padding: 0;
     }
   }
 }
