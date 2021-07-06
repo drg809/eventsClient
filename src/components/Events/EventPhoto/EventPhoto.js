@@ -4,17 +4,20 @@ import { Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import { API_HOST } from '../../../utils/constant';
 import { checkParticipationApi } from '../../../api/participarte';
+import ParticipateModal from '../../Modal/Participations/ParticipateModal';
+import ParticipateForm from '../Participation/ParticipateForm/ParticipateForm';
+import CancelForm from '../Participation/CancelForm/CancelForm';
 
 import './EventPhoto.scss';
 
 export default function EventPhoto(props) {
    const { event } = props;
-   const [showModal, setShowModal] = useState(false);
+   const [showPartModal, setShowPartModal] = useState(false);
+   const [showCancelModal, setShowCancelModal] = useState(false);
    const [participation, setParticipation] = useState(null);
-   const [reloadFollow, setReloadFollow] = useState(false);
+   const [reloadParticipation, setReloadParticipation] = useState(false);
    const photoUrl = event?.photo ? `${API_HOST}/events/photo?id=${event._id}` : null;
    const loggedUser = useAuth();
-   console.log(props);
 
    useEffect(() => {
       if (event) {
@@ -22,28 +25,26 @@ export default function EventPhoto(props) {
             response?.status ? setParticipation(true) : setParticipation(false);
          });
       }
-      setReloadFollow(false);
-   }, [event, reloadFollow]);
-
-   const onParticipate = () => {
-      // unFollowUserApi(event.id).then(() => {
-      //    setReloadFollow(true);
-      // });
-   };
+      setReloadParticipation(false);
+   }, [event, reloadParticipation]);
 
    return (
       <div className='banner-avatar' style={{ backgroundImage: `url(${photoUrl})` }}>
          {event && (
             <div className='options'>
                {participation !== null && (
-                  (participation ? <Button onClick={onParticipate} className='participate' > <span>Participando</span> </Button> : <Button >Participar</Button>)
+                  (participation ? <Button onClick={() => setShowCancelModal(true)} className='participate' > <span>Participando</span> </Button> : <Button onClick={() => setShowPartModal(true)} >Participar</Button>)
                )}
             </div>
          )}
 
-         {/* <ConfigModal show={showModal} setShow={setShowModal} title='Editar Perfil' >
-            <EditUserForm loggedUser={loggedUser} event={event} setShowModal={setShowModal} />
-         </ConfigModal> */}
+         <ParticipateModal show={showPartModal} setShowModal={setShowPartModal} title='Participar' >
+            <ParticipateForm loggedUser={loggedUser} event={event} setShowModal={setShowPartModal} />
+         </ParticipateModal>
+
+         <ParticipateModal show={showCancelModal} setShowModal={setShowCancelModal} title='Participar' >
+            <CancelForm loggedUser={loggedUser} event={event} setShowModal={setShowCancelModal} />
+         </ParticipateModal>
       </div>
    );
 }
