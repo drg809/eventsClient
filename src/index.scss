@@ -23,9 +23,11 @@ code {
 .btn.btn-primary {
   background-color: $primary;
   border-color: $primary;
+  color: $primary-dark;
 
   &:hover {
-    background-color: rgba(26, 145, 218, 1);
+    background-color: $background-grey-dark;
+    color: $primary;
   }
 }
 
@@ -36,7 +38,8 @@ code {
   &:hover,
   &:active,
   &:focus {
-    background-color: rgba(29, 261, 241, .1) !important;
+    background-color: $primary !important;
+    color: $primary-dark;
   }
 }
 
@@ -46,7 +49,7 @@ textarea.form-control {
   border-radius: 0;
   border: 0;
   border-bottom: 1px solid $border-grey;
-  color: $font-light !important;
+  color: $font-dark !important;
   margin-bottom: 2vh;
 
   &:focus {

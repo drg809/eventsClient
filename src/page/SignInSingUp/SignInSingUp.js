@@ -8,7 +8,7 @@ import BasicModal from '../../components/Modal/BasicModal/BasicModal';
 import SignUpForm from '../../components/SignUpForm';
 import SignInForm from '../../components/SignInForm';
 import LogoWhiteEvents from '../../assets/png/logo-white.png';
-import LogoEvents from '../../assets/png/logo.png';
+import LogoEvents from '../../assets/png/logo-donbosco.png';
 
 import './SignInSingUp.scss';
 
@@ -65,7 +65,7 @@ function RightComponent(props) {
    return (
       <Col className='signin-signup__right'>
          <div>
-            <img src={LogoWhiteEvents} alt='events'/>
+
             <h2>Mira las actividades de Don Bosco.</h2>
             <h3>Únete a la comunidad de Don Bosco hoy mismo.</h3>
             <Button onClick={ () => openModal(<SignUpForm setShowModal={setShowModal} />) } variant='primary'>

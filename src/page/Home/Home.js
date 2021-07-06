@@ -57,6 +57,7 @@ function Home(props) {
    }
 
    return (
+      
       <BasicLayout className='home' setRefreshCheckLogin={setRefreshCheckLogin} >
          <div className='home__title'>
             <h2>Eventos Próximos</h2>

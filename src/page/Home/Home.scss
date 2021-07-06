@@ -1,11 +1,14 @@
 @import '../../assets/scss/index.scss';
-
+#root{
+   background-color: white;
+}
 .home {
    &__title {
       padding: 15px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background-color: $primary-dark;
 
       h2 {
          font-size: 22px;
@@ -16,10 +19,10 @@
       input {
          width: 50%;
          border-radius: 50px;
-         border: 0;
          background-color: $background-dark-light;
          padding: 5px 20px;
-         color: $font-light;
+         color: $font-dark;
+         border-color: $primary-dark;
 
          &:focus {
             outline: none;

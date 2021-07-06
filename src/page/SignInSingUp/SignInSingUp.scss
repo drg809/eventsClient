@@ -8,24 +8,28 @@ body {
    &__left {
       overflow: hidden;
       min-height: 100vh;
-      background-color: $primary-light;
+      background-color: white;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: $primary-dark;
 
       img {
          position: absolute;
-         right: 35%;
+         width: 20vw;
+         top: 25%;
+         
       }
 
       div {
          z-index: 1;
+         margin-top: 38vh;
 
          h2 {
             display: flex;
             align-items: center;
             font-size: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: bold;
 
             svg {
@@ -40,6 +44,7 @@ body {
    &__right {
       display: flex;
       align-items: center;
+      background-color: $primary-dark;
 
       > div {
          width: 500px;

@@ -1,12 +1,14 @@
 @import '../../../assets/scss/index.scss';
 
 .list-events {
+   background-color: $primary-dark;
    a {
       font-size: 20px;
       color: $font-light;
       font-weight: normal;
       margin-bottom: 30px;
       text-decoration: none;
+      
 
       &:hover {
          text-decoration: none;
@@ -31,6 +33,10 @@
          }
          >div{
             width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;/*si no se declara añade los ... pero muestra todo el texto*/
             .name {
                font-weight: bold;
                display: flex;
