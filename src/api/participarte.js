@@ -22,3 +22,25 @@ export function checkParticipationApi(eventID) {
       return err;
    });
 }
+
+export function participateEventApi(eventID, data) {
+   const url = `${API_HOST}/participations?eventId=${eventID}`;
+
+   const params = {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      },
+      body: JSON.stringify(data)
+   };
+
+   return fetch(url, params).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+         return {code: response.status, message: 'Enhorabuena, ¡participaste en el evento!.'};
+      }
+      return {code: 500, message: 'Error del servidor.'};
+   }).catch(err => {
+      return err;
+   });
+}
