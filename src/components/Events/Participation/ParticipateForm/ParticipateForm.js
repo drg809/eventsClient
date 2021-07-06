@@ -24,13 +24,13 @@ export default function ParticipateForm(props) {
       setLoading(true);
       participateEventApi(event._id, formData).then(response => {
          if (response?.code >= 200 && response?.code < 300) {
-            toast.success(response.message);
             setFormData(initialValue());
             setShowModal(false);
             window.location.replace('/');
+            toast.success(response.message);
          }
       }).catch(() => {
-         toast.warning('Error al crear el evento, inténtelo más tarde.')
+         toast.warning('Error al participar en el evento, inténtelo más tarde.')
       });
       setLoading(false);
    }
