@@ -1,0 +1,18 @@
+@import "../../../../assets/scss/index.scss";
+
+.participate-form {
+  form {
+    padding: 0 20px 20px 20px;
+
+    div.formSubmit {
+      text-align: end;
+      margin-bottom: 30px;
+
+      .btn-submit {
+        border-radius: 50px;
+        font-size: 16px;
+        padding: 4px 15px;
+      }
+    }
+  }
+}

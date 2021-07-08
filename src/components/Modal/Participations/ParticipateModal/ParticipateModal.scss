@@ -1,6 +1,6 @@
-@import '../../../assets/scss/index.scss';
+@import '../../../../assets/scss/index.scss';
 
-.events-modal {
+.participate-modal {
    .modal-content {
       background-color: $background-grey-dark;
       border-radius: 25px;
@@ -11,15 +11,24 @@
          padding: 15px;
 
          .modal-title {
+            display: flex;
+            align-items: center;
+
             svg {
                width: 15px;
                height: 15px;
                fill: $primary;
                margin-left: 10px;
+               margin-right: 20px;
 
                &:hover {
                   cursor: pointer;
                }
+            }
+
+            h2 {
+               font-size: 18px;
+               margin: 0;     
             }
          }
       }

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { getEventByIdApi } from '../../../api/event';
-import BasicLayout from '../../../layout/BasicLayout/BasicLayout';
+import EventsLayout from '../../../layout/EventsLayout/EventsLayout';
 import InfoEvent from '../../../components/Events/InfoEvent/InfoEvent';
 import EventPhoto from '../../../components/Events/EventPhoto';
 
@@ -24,13 +24,13 @@ function InfoEvents(props) {
    }, [params]);
 
    return (
-      <BasicLayout setRefreshCheckLogin={setRefreshCheckLogin} className='event'>
+      <EventsLayout setRefreshCheckLogin={setRefreshCheckLogin} className='event'>
          <EventPhoto event={event} />
          <div className='event__title'>
             <h2> {event ? `${event.name}` : 'El evento no existe' } </h2>
          </div>
          <InfoEvent event={event} />
-      </BasicLayout>
+      </EventsLayout>
    );
 }
 
