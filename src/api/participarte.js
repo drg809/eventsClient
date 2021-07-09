@@ -65,3 +65,25 @@ export function cancelEventPartApi(eventID) {
       return err;
    });
 }
+
+export function getParticipantsApi(eventID) {
+   const url = `${API_HOST}/participations?eventId=${eventID}`;
+
+   const params = {
+      method: 'GET',
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${getTokenApi()}`
+      }
+   };
+
+   return fetch(url, params).then(response => {
+      return response.json();
+   })
+   .then(result => {
+      return result;
+   })
+   .catch(err => {
+      return err;
+   });
+}

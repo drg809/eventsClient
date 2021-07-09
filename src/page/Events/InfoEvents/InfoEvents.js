@@ -13,6 +13,7 @@ function InfoEvents(props) {
    const { setRefreshCheckLogin, match } = props;
    const { params } = match;
    const [event, setEvent] = useState(null);
+   const [participants, setParticipants] = useState(null)
 
    useEffect(() => {
       getEventByIdApi(params.id).then(response => {
@@ -20,7 +21,8 @@ function InfoEvents(props) {
          setEvent(response);
       }).catch(() => {
          toast.error('El evento que has visitado no existe.');
-      })
+      });
+
    }, [params]);
 
    return (
