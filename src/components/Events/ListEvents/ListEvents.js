@@ -13,7 +13,7 @@ import './ListEvents.scss';
 
 export default function ListEvents(props) {
    const { events } = props;
-
+   console.log(events);
    return (
       <div className="list-events" >
          {map(events, (event, i) => (
@@ -29,7 +29,7 @@ function Event(props) {
    const [userInfo, setUserInfo] = useState(null);
    const [avatarUrl, setAvatarUrl] = useState(null);
 
-   const photoUrl = event.photo ? `${API_HOST}/events/photo?id=${event.id}` : AvatarNotFound;
+   const photoUrl = event.Event.photo ? `${API_HOST}/events/photo?id=${event.Event._id}` : AvatarNotFound;
    
    useEffect(() => {
       getUserApi(event.userId).then((response) => {
@@ -45,15 +45,15 @@ function Event(props) {
             <div>
                <div className='name'>
                   <div>
-                     {event.name}
-                     <span>{moment(event.date).calendar()}</span>
+                     {event.Event.name}
+                     <span>{moment(event.Event.date).calendar()}</span>
                   </div>
                   <div>
                      <Image className='avatar' src={avatarUrl} roundedCircle />
                      {userInfo?.name} {userInfo?.surname}
                   </div>
                </div>
-               <div dangerouslySetInnerHTML={{__html: replaceURLWithHTMLLinks(event.detail)}} />
+               <div dangerouslySetInnerHTML={{__html: replaceURLWithHTMLLinks(event.Event.detail)}} />
             </div>
          </div>
       </Link>

@@ -23,7 +23,7 @@ export default function LeftMenu(props) {
          <img className='logo' src={LogoWhite} alt='eventos' />
 
          <Link to='/'> <FontAwesomeIcon icon={faHome} /> Inicio</Link>
-         <Link to='/users'> <FontAwesomeIcon icon={faUsers} /> Usuarios</Link>
+         <Link to='/users'> <FontAwesomeIcon icon={faUsers} /> Comunidad</Link>
          <Link to={`/profile/${user?._id}`}> <FontAwesomeIcon icon={faUser} /> Perfíl</Link>
          <Link to='' onClick={logout}> <FontAwesomeIcon icon={faPowerOff} /> Cerrar sesión</Link>
 
