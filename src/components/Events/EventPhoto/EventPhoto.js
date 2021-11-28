@@ -20,6 +20,7 @@ export default function EventPhoto(props) {
    useEffect(() => {
       if (event) {
          checkParticipationApi(event._id).then(response => {
+            console.log(response);
             response?.status ? setParticipation(true) : setParticipation(false);
          });
       }
